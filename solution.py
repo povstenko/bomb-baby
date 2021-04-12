@@ -1,20 +1,18 @@
 def solution(x, y):
-    M = int(x)
-    F = int(y)
+    M, F = int(x), int(y)
     generations = 0
 
     while M != F:
         if M > F:
             subs = (M-F)//F + ((M-F) % F > 0)
             generations += subs
-            M = M - subs * F
+            M -= subs * F
         else:
             subs = (F-M)//M + ((F-M) % M > 0)
             generations += subs
-            F = F - subs * M
+            F -= subs * M
 
-    return str(generations) if(M, F) == (1, 1) else 'impossible'
-
+    return str(generations) if (M, F) == (1, 1) else 'impossible'
 
 
 print(solution('4', '7'))
